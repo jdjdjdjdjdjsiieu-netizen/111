@@ -1,0 +1,19 @@
+telethon==1.31.1
+fastapi==0.104.1
+uvicorn==0.24.0
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+pydantic==2.5.0
+python-dotenv==1.0.0
+aiofiles==23.2.1
+aiohttp==3.9.1
+python-multipart==0.0.6
+
+# БЕСПЛАТНЫЕ ИИ API (вместо OpenAI)
+google-generativeai>=0.3.0  # Google Gemini (БЕСПЛАТНО - 60 запросов/мин)
+groq>=0.4.0  # Groq (БЕСПЛАТНО - очень быстро)
+huggingface-hub>=0.16.0  # Hugging Face (БЕСПЛАТНО - 1000+ моделей)
+requests>=2.31.0  # Для Ollama и других HTTP API
+
+# Опционально: для локального запуска моделей
+# ollama>=0.1.0  # Ollama (ПОЛНОСТЬЮ БЕСПЛАТНО - локально)

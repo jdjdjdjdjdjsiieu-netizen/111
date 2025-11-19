@@ -1,0 +1,48 @@
+graph TD
+    subgraph A_User_Interaction
+        A[Telegram User] --> B(Telegram Bot API)
+        B --> C{Bot Core (aiogram)}
+    end
+
+    subgraph B_Bot_Backend
+        C --> D[Business Logic Layer]
+        D --> E(AI Module - LLM API)
+        D --> F[Database (PostgreSQL/SQLite)]
+        D --> G[Partner Links Storage]
+    end
+
+    subgraph C_AI_Services
+        E --> H[OpenAI/Other LLM Service]
+    end
+
+    subgraph D_External_Systems
+        G --> I[Alfa-Bank Partner Cabinet (Simulated)]
+    end
+
+    %% Flow of Recommendation
+    C -- 1. Start Dialogue --> D
+    D -- 2. Context/Questions --> C
+    C -- 3. User Input --> D
+    D -- 4. Request Recommendation --> E
+    E -- 5. Analyze & Generate --> H
+    H -- 6. Recommendation/Content --> E
+    E -- 7. Store/Format --> D
+    D -- 8. Get Partner Link --> G
+    D -- 9. Send Message/Link --> C
+    C -- 10. Display to User --> A
+
+    %% Flow of Partner Recruiting
+    C -- Partner Command --> D
+    D -- Check Status --> F
+    D -- Generate Onboarding Content --> E
+    E -- Onboarding Text/FAQ --> D
+    D -- Send Onboarding --> C
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style H fill:#ccf,stroke:#333,stroke-width:2px
+    style I fill:#fcc,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#ddf,stroke:#333,stroke-width:2px
+    style E fill:#eef,stroke:#333,stroke-width:2px
+    style F fill:#dfd,stroke:#333,stroke-width:2px
+    style G fill:#ffd,stroke:#333,stroke-width:2px
